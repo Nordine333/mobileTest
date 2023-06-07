@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirection d'appareil</title>
+  <script>
+    // Fonction pour détecter l'appareil de l'utilisateur
+    function detectDevice() {
+      // Vérifier la largeur de l'écran
+      var width = window.innerWidth ||
+        document.documentElement.clientWidth ||
+        document.body.clientWidth;
+        
+      // Rediriger vers le fichier approprié en fonction de la largeur de l'écran
+      if (width < 768) {
+        window.location.href = 'Mobile/index-mobile.html'; // Rediriger vers index-mobile.html pour les appareils mobiles
+      } else {
+        window.location.href = 'Desktop/index-desktop.html'; // Rediriger vers index-desktop.html pour les appareils de bureau
+      }
+    }
+  </script>
+</head>
+<body onload="detectDevice()">
+  <h1>Redirection d'appareil</h1>
+  <p>Redirection en cours...</p>
+</body>
+</html>
