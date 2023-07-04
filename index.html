@@ -112,13 +112,11 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
-          isLoadingComplete = true;
+			setTimeout(() => {
+			 isLoadingComplete = true;
+			}, 2000); // 2000 millisecondes = 8 secondes
           fullscreenButton.onclick = () => {
-			    if (isLoadingComplete) {
-				setTimeout(() => {
-				  unityInstance.SetFullscreen(1);
-				}, 2000); // 8000 millisecondes = 8 secondes
-			  }
+			  if(isLoadingComplete)unityInstance.SetFullscreen(1);
           };
         }).catch((message) => {
           alert(message);
