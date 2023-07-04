@@ -114,7 +114,11 @@
           loadingBar.style.display = "none";
           isLoadingComplete = true;
           fullscreenButton.onclick = () => {
-			  if(isLoadingComplete)unityInstance.SetFullscreen(1);
+			    if (isLoadingComplete) {
+				setTimeout(() => {
+				  unityInstance.SetFullscreen(1);
+				}, 8000); // 8000 millisecondes = 8 secondes
+			  }
           };
         }).catch((message) => {
           alert(message);
