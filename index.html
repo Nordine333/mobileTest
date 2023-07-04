@@ -115,5 +115,33 @@
       };
       document.body.appendChild(script);
     </script>
+    <script>
+function hideFullscreenButton() {
+  var canvas = document.getElementById("unityContainer");
+  if (canvas) {
+    var player = UnityLoader.findModule("unityInstance");
+    if (player) {
+      var fullScreenButton = player.Module.splashScreen.fullscreenButton;
+      if (fullScreenButton) {
+        fullScreenButton.style.display = "none";
+      }
+    }
+  }
+}
+
+window.addEventListener("DOMContentLoaded", function() {
+  hideFullscreenButton();
+  setTimeout(function() {
+    var unityInstance = UnityLoader.findModule("unityInstance");
+    if (unityInstance) {
+      var player = unityInstance.default;
+      if (player) {
+        var fullScreenButton = player.Module.splashScreen.fullscreenButton;
+        if (fullScreenButton) {
+          fullScreenButton.style.display = "block";
+        }
+      }
+    }
+ </script>
   </body>
 </html>
